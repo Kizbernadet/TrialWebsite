@@ -1,0 +1,139 @@
+/* Trial Page Stylesheet */
+
+/* Usable Polices */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 14px;
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 100px;
+}
+
+.burger-button {
+    position: relative;
+    width: 60px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.burger-button span {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: black;
+    transition: background-color ease-in-out 0.2s;
+}
+
+.burger-button span::before, .burger-button span::after {
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 4px;
+    background-color: black;
+    transition: 0.5s;
+}
+
+.burger-button span::before {
+    transform: translateY(-20px);
+}
+
+.burger-button span::after {
+    transform: translateY(20px);
+}
+
+/* burger button animation */
+.burger-button.active span {
+    background-color: transparent;
+}
+
+.burger-button.active span::before {
+    transform: translateY(0) rotateZ(45deg);
+}
+
+.burger-button.active span::after {
+    transform: translateY(0) rotateZ(-45deg);
+}
+
+/* burger button animation */
+
+section {
+    font-size: 1.5em;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    text-align: center;
+    font-weight: 200;
+    background-color: darkblue;
+}
+
+section p {
+    font-style: italic;
+}
+section p.logo {
+    font-size: 2.5em;
+    font-style: normal;
+}
+
+section .logo span {
+    font-weight: 500;
+}
+
+/* Nouvelle section utilisant CSS Grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr; /* Trois colonnes */
+    grid-template-rows: auto 200px 100px; /* Trois lignes */
+    grid-template-areas: 
+        "header header header"
+        "sidebar main main"
+        "footer footer footer";
+    gap: 10px; /* Espacement entre les éléments */
+    background-color: white; /* Couleur de fond de la grille */
+    padding: 20px;
+}
+
+.grid-item {
+    background-color: crimson;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.header { grid-area: header; background-color: #279ac1; }
+.sidebar { grid-area: sidebar; background-color: #0e590e; }
+.main { grid-area: main; background-color: #d82727; }
+.footer { grid-area: footer; background-color: #5f5f09; }
+
+/* Placer l'élément extra en utilisant les lignes */
+.extra {
+    grid-column: 1 / 4; /* De la première à la quatrième colonne */
+    grid-row: 3 / 4; /* De la troisième ligne à la quatrième */
+    background-color: lightpink;
+}
